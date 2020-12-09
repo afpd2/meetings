@@ -10,7 +10,7 @@
     <body>
         <nav class="navbar navbar-light bg-light" style="border-bottom: 1px solid rgba(0,0,0,.125);">
             <div class="container-fluid p-0">
-                <a class="navbar-brand p-0">
+                <a class="navbar-brand p-0" href="https://afpd2.github.io/meetings/">
                     <img src="logo.jpg" width="40" height="40" class="d-inline-block">
                     Pacific Drive 2nd Ward Meetings
                 </a>
@@ -20,51 +20,79 @@
             <div class="row">
                 <div class="col-md-1"></div>
                 <div class="col-md-5">
-                    <div class="card m-3">
-                        <div class="card-header text-center">
+                    <div id="1/3Sunday" class="card m-3">
+                        <div id="1/3Header" class="card-header text-center">
                             1st and 3rd Sundays
                         </div>
                         <div class="card-body">
                             <h6 class="card-subtitle mt-2 text-muted">10 AM</h6>
-                            <a class="btn btn-primary mt-2 mb-3" href="https://zoom.us/" target="_blank" role="button">Adult Sunday School</a><br>
+                            <a class="btn btn-primary mt-2 mb-3 text-center" href="https://us04web.zoom.us/j/77717284700?pwd=YjRiazRjRjVhYktyU29tRGZmeUlsQT09" target="_blank" role="button">Adult Sunday School</a><br>
                             <h6 class="card-subtitle mt-2 text-muted">11 AM</h6>
-                            <a class="btn btn-primary mt-2 mb-3" href="https://zoom.us/" target="_blank" role="button">Youth Sunday School</a><br>
+                            <a class="btn btn-primary mt-2 mb-3 disabled" href="" role="button">Youth Sunday School</a><br>
                             <h6 class="card-subtitle mt-2 text-muted">12 PM</h6>
-                            <a class="btn btn-primary mt-2 mb-3" href="https://zoom.us/" target="_blank" role="button">Sacrament Meeting</a>
+                            <a class="btn btn-primary mt-2 mb-3" href="https://us02web.zoom.us/j/82528637045?pwd=ZU9SWHdQcWVQbDl6ZW9CdXl2VHMvZz09" target="_blank" role="button">Sacrament Meeting</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <div class="card m-3">
-                        <div class="card-header text-center">
+                    <div id="2/4Sunday" class="card m-3">
+                        <div id="2/4Header" class="card-header text-center">
                             2nd and 4th Sundays
                         </div>
                         <div class="card-body">
                             <h6 class="card-subtitle mt-2 text-muted">10 AM</h6>
-                            <a class="btn btn-primary mt-2 mb-3" href="https://zoom.us/" target="_blank" role="button">Relief Society</a><br>
+                            <a class="btn btn-primary mt-2 mb-3" href="https://us02web.zoom.us/j/82777254422?pwd=UDIQY2dLREdBam9PV3U1ZUk2LZU" target="_blank" role="button">Relief Society</a><br>
                             <h6 class="card-subtitle mt-2 text-muted">10:30 AM</h6>
-                            <a class="btn btn-primary mt-2 mb-3" href="https://zoom.us/" target="_blank" role="button">Elder's Quorum</a><br>
+                            <a class="btn btn-primary mt-2 mb-3" href="https://us02web.zoom.us/j/84409153270?pwd=ZjY2SUlmQ2dqcjRyUmhOcGJIUldhzz09" target="_blank" role="button">Elder's Quorum</a><br>
                             <h6 class="card-subtitle mt-2 text-muted">11 AM</h6>
-                            <a class="btn btn-primary mt-2 mb-3" href="https://zoom.us/" target="_blank" role="button">Young Men & Young Women</a><br>
+                            <a class="btn btn-primary mt-2 mb-3 disabled" href="" role="button">Young Men & Young Women</a><br>
                             <h6 class="card-subtitle mt-2 text-muted">12 PM</h6>
-                            <a class="btn btn-primary mt-2 mb-3" href="https://zoom.us/" target="_blank" role="button">Sacrament Meeting</a>
+                            <a class="btn btn-primary mt-2 mb-3" href="https://us02web.zoom.us/j/82528637045?pwd=ZU9SWHdQcWVQbDl6ZW9CdXl2VHMvZz09" target="_blank" role="button">Sacrament Meeting</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-1"></div>
             </div>
-            <input type='text' id='week' value=''>
         </main>
         
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script>
-            var d = new Date();
-            var date = d.getDate();
-            var day = d.getDay();
-            var weekOfMonth = Math.ceil((date + 6 - day)/7);
-            document.getElementById('week').value = weekOfMonth;
+            function sundaysInMonth(m, y) {
+                var days = new Date(y,m,0).getDate();
+                var sundays = [ (8 - (new Date( m +'/01/'+ y ).getDay())) % 7 ];
+
+                for ( var i = sundays[0] + 7; i < days; i += 7 ) {
+                    sundays.push( i );
+                }
+
+                return sundays;
+            }
+
+            var date = new Date();
+            var today = date.getDate();
+            var sundayArray = sundaysInMonth(date.getMonth() + 1, date.getFullYear());
+
+            // 1st and 3rd Sundays
+            if (today <= sundayArray[0] || (today > sundayArray[1] && today <= sundayArray[2]) || (sundayArray.length == 4 && today > sundayArray[3]) || (sundayArray.length == 5 && today > sundayArray[4])) {
+                document.getElementById('1/3Sunday').style.borderColor = "red";
+                document.getElementById('2/4Sunday').style.borderColor = "rgba(0,0,0,.125)";
+                document.getElementById('1/3Header').style.borderBottomColor = "red";
+                document.getElementById('2/4Header').style.borderBottomColor = "rgba(0,0,0,.125)";
+
+            }
+            // 2nd and 4th Sundays
+            else if ((today > sundayArray[0] && today <= sundayArray[1]) || (today > sundayArray[2] && today <= sundayArray[3])) {
+                document.getElementById('1/3Sunday').style.borderColor = "rgba(0,0,0,.125)";
+                document.getElementById('2/4Sunday').style.borderColor = "red";
+                document.getElementById('1/3Header').style.borderBottomColor = "rgba(0,0,0,.125)";
+                document.getElementById('2/4Header').style.borderBottomColor = "red";
+            }
+            // 5th Sunday
+            else {
+                
+            }
         </script>
     </body>
 </html>
