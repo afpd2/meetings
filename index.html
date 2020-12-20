@@ -33,11 +33,11 @@
                         </div>
                         <div class="card-body">
                             <h6 class="card-subtitle mt-2 text-muted">10 AM</h6>
-                            <a class="btn btn-primary mt-2 mb-3 text-center" href="https://us04web.zoom.us/j/77717284700?pwd=YjRiazRjRjVhYktyU29tRGZmeUlsQT09" target="_blank" role="button">Adult Sunday School</a><br>
+                            <a id="SS" class="btn btn-primary mt-2 mb-3 text-center" href="" target="_blank" role="button">Adult Sunday School</a><br>
                             <h6 class="card-subtitle mt-2 text-muted">11 AM</h6>
-                            <a class="btn btn-primary mt-2 mb-3 disabled" href="" role="button">Youth Sunday School</a><br>
+                            <button type="button" class="btn btn-primary mt-2 mb-3" data-toggle="modal" data-target="#YSSModal">Youth Sunday School</button>
                             <h6 class="card-subtitle mt-2 text-muted">12 PM</h6>
-                            <a class="btn btn-primary mt-2 mb-3" href="https://us02web.zoom.us/j/82528637045?pwd=ZU9SWHdQcWVQbDl6ZW9CdXl2VHMvZz09" target="_blank" role="button">Sacrament Meeting</a>
+                            <a id="SM1" class="btn btn-primary mt-2 mb-3" href="" target="_blank" role="button">Sacrament Meeting</a>
                         </div>
                     </div>
                 </div>
@@ -48,17 +48,56 @@
                         </div>
                         <div class="card-body">
                             <h6 class="card-subtitle mt-2 text-muted">10 AM</h6>
-                            <a class="btn btn-primary mt-2 mb-3" href="https://us02web.zoom.us/j/82777254422?pwd=UDIQY2dLREdBam9PV3U1ZUk2LZU" target="_blank" role="button">Relief Society</a><br>
+                            <a id="RS" class="btn btn-primary mt-2 mb-3" href="" target="_blank" role="button">Relief Society</a><br>
                             <h6 class="card-subtitle mt-2 text-muted">10:30 AM</h6>
-                            <a class="btn btn-primary mt-2 mb-3" href="https://us02web.zoom.us/j/84409153270?pwd=ZjY2SUlmQ2dqcjRyUmhOcGJIUldhzz09" target="_blank" role="button">Elder's Quorum</a><br>
+                            <a id="EQ" class="btn btn-primary mt-2 mb-3" href="" target="_blank" role="button">Elder's Quorum</a><br>
                             <h6 class="card-subtitle mt-2 text-muted">11 AM</h6>
-                            <a class="btn btn-primary mt-2 mb-3 disabled" href="" role="button">Young Men & Young Women</a><br>
+                            <button type="button" class="btn btn-primary mt-2 mb-3" data-toggle="modal" data-target="#YMYWModal">Young Men & Young Women</button>
                             <h6 class="card-subtitle mt-2 text-muted">12 PM</h6>
-                            <a class="btn btn-primary mt-2 mb-3" href="https://us02web.zoom.us/j/82528637045?pwd=ZU9SWHdQcWVQbDl6ZW9CdXl2VHMvZz09" target="_blank" role="button">Sacrament Meeting</a>
+                            <a id="SM2" class="btn btn-primary mt-2 mb-3" href="" target="_blank" role="button">Sacrament Meeting</a>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-1"></div>
+            </div>
+            <div class="modal" tabindex="-1" role="dialog" id="YSSModal" aria-labelledby="YSSLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="YSSLabel">Youth Sunday School</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <a id="YSS1112" class="btn btn-primary mt-2 mb-3" href="" target="_blank" role="button">Ages 11-12</a><br>
+                            <a id="YSS1314" class="btn btn-primary mt-2 mb-3" href="" target="_blank" role="button">Ages 13-14</a><br>
+                            <a id="YSS1517" class="btn btn-primary mt-2 mb-3" href="" target="_blank" role="button">Ages 15-17</a><br>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal" tabindex="-1" role="dialog" id="YMYWModal" aria-labelledby="YMYWLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="YMYWLabel">Young Men & Young Women</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <a id="YM" class="btn btn-primary mt-2 mb-3 disabled" href="" target="_blank" role="button">Young Men</a><br>
+                            <a id="YW" class="btn btn-primary mt-2 mb-3" href="" target="_blank" role="button">Young Women</a><br>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </main>
         
@@ -99,6 +138,25 @@
             // 5th Sunday
             else {
                 
+            }
+
+            // setup links
+            let links = {
+                SS: "https://us04web.zoom.us/j/77717284700?pwd=YjRiazRjRjVhYktyU29tRGZmeUlsQT09",
+                YSS1112: "https://us04web.zoom.us/j/77717284700?pwd=YjRiazRjRjVhYktyU29tRGZmeUlsQT09",
+                YSS1314: "https://us02web.zoom.us/j/88969073379?pwd=R3VUV3UvWmlJRkI3VXROYUdJd3Rqdz09",
+                YSS1517: "https://us04web.zoom.us/j/77276433432?pwd=R2tKeVRiWVpUandRUVh6K2RGUXVzdz09",
+                SM1: "https://us02web.zoom.us/j/82528637045?pwd=ZU9SWHdQcWVQbDl6ZW9CdXl2VHMvZz09",
+                RS: "https://us02web.zoom.us/j/82777254422?pwd=UDIQY2dLREdBam9PV3U1ZUk2LZU",
+                EQ: "https://us02web.zoom.us/j/84409153270?pwd=ZjY2SUlmQ2dqcjRyUmhOcGJIUldhzz09",
+                YM: "",
+                YW: "https://us05web.zoom.us/j/86312589647?pwd=K0YzcmZFNVZhcTZHL21NWXQwOWF3dz09",
+            };
+
+            links["SM2"] = links["SM1"]
+
+            for (let key of Object.keys(links)) {
+                document.getElementById(key).setAttribute("href",links[key]);
             }
         </script>
     </body>
