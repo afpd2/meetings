@@ -168,21 +168,20 @@
             var today = date.getDate();
             var sundayArray = sundaysInMonth(date.getMonth() + 1, date.getFullYear());
 
-            // // 1st and 3rd Sundays
-            // if (today <= sundayArray[0] || (today > sundayArray[1] && today <= sundayArray[2]) || (sundayArray.length == 4 && today > sundayArray[3]) || (sundayArray.length == 5 && today > sundayArray[4])) {
-            //     document.getElementById('1/3Sunday').style.border = "2px solid red";
-            //     document.getElementById('2/4Sunday').style.border = "1px solid rgba(0,0,0,.125)";
-            //     document.getElementById('1/3Header').style.borderBottom = "2px solid red";
-            //     document.getElementById('2/4Header').style.borderBottom = "1px solid rgba(0,0,0,.125)";
-
-            // }
-            // // 2nd and 4th Sundays
-            // else if ((today > sundayArray[0] && today <= sundayArray[1]) || (today > sundayArray[2] && today <= sundayArray[3])) {
-            //     document.getElementById('1/3Sunday').style.border = "1px solid rgba(0,0,0,.125)";
-            //     document.getElementById('2/4Sunday').style.border = "2px solid red";
-            //     document.getElementById('1/3Header').style.borderBottom = "1px solid rgba(0,0,0,.125)";
-            //     document.getElementById('2/4Header').style.borderBottom = "2px solid red";
-            // }
+            // 1st and 3rd Sundays
+            if (today <= sundayArray[0] || (today > sundayArray[1] && today <= sundayArray[2]) || (sundayArray.length == 4 && today > sundayArray[3]) || (sundayArray.length == 5 && today > sundayArray[4])) {
+                document.getElementById('1/3Sunday').style.border = "2px solid red";
+                document.getElementById('2/4Sunday').style.border = "1px solid rgba(0,0,0,.125)";
+                document.getElementById('1/3Header').style.borderBottom = "2px solid red";
+                document.getElementById('2/4Header').style.borderBottom = "1px solid rgba(0,0,0,.125)";
+            }
+            // 2nd and 4th Sundays
+            else if ((today > sundayArray[0] && today <= sundayArray[1]) || (today > sundayArray[2] && today <= sundayArray[3])) {
+                document.getElementById('1/3Sunday').style.border = "1px solid rgba(0,0,0,.125)";
+                document.getElementById('2/4Sunday').style.border = "2px solid red";
+                document.getElementById('1/3Header').style.borderBottom = "1px solid rgba(0,0,0,.125)";
+                document.getElementById('2/4Header').style.borderBottom = "2px solid red";
+            }
 
             // setup links
             let links = {
